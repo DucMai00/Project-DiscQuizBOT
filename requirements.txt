@@ -1,1 +1,7 @@
+Cho 2 dòng này nằm dưới phần import thư viện
+DISCORD_BOT_TOKEN ="MTMzNDgyMzc3MjMwOTQyMjA4MQ.Gw8kc3.z1eiIecNgQ1b0Yuszmr7DW8KOe0ou3bR-bwPJw"
+GEMINI_API_KEY="AIzaSyDk2fBum4uqY3FKAGQNPcE0qsS9VDhGTmg"
+  
+Và đặt lại   genai.configure("") thành genai.configure(api_key=GEMINI_API_KEY) ở line 9
 
+Lướt xuống cuối cùng đặt lại   bot.run("") thành bot.run(DISCORD_BOT_TOKEN)
