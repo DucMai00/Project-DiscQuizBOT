@@ -30,14 +30,32 @@ pip install discord.py python-docx PyPDF2 requests google.generativeai
 
 ---
 
-## 🛠 Cấu Hình API Key
-
 ### 🔹 Cấu hình API Key cho Gemini AI và Discord Bot
-Để bot hoạt động, bạn cần tạo và cung cấp API Key:
-1. **Discord Bot Token**: Lấy từ [Discord Developer Portal](https://discord.com/developers/applications).
-2. **Gemini AI API Key**: Lấy từ Google AI.
 
-Thêm chúng vào file `.env` hoặc trực tiếp trong mã nguồn nếu cần.
+Để bot hoạt động, bạn cần tạo và cung cấp API Key:
+
+1. **Discord Bot Token**  
+   - Truy cập [Discord Developer Portal](https://discord.com/developers/applications)
+   - Tạo một ứng dụng mới và thêm bot vào ứng dụng
+   - Trong tab "Bot", nhấn "Reset Token" để lấy Token mới
+   - **Không chia sẻ Token này với bất kỳ ai!**
+
+2. **Gemini AI API Key**  
+   - Truy cập [Google AI Studio](https://aistudio.google.com/)
+   - Đăng nhập và tạo API Key trong phần "API Keys"
+   - Sao chép và lưu trữ API Key cẩn thận
+
+👉 **Không đi kèm với sản phẩm trên GitHub vì là thông tin nhạy cảm**
+
+### 🔧 Cách thêm API Key vào dự án
+Thêm chúng vào file `.env` hoặc trực tiếp trong mã nguồn nếu cần:
+
+```ini
+DISCORD_BOT_TOKEN=your_discord_bot_token_here
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+Sau khi cấu hình, bạn có thể chạy bot bình thường! 🚀
 
 ---
 
