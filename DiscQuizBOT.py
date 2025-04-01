@@ -3,10 +3,14 @@ from discord.ext import commands
 from discord.ui import Button, View
 import requests
 import PyPDF2
+import os 
 from docx import Document
 import google.generativeai as genai
 
-genai.configure()
+DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+genai.configure(api_key=GEMINI_API_KEY)
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -77,7 +81,7 @@ async def sot(ctx):
                 extracted_text += para.text + "\n"
 
         # 
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-1.5-flash')
         prompt = f"Tạo {selected_count} câu hỏi trắc nghiệm từ nội dung sau và chỉ rõ đáp án đúng với định dạng:\nCâu [số]: [Nội dung]\nA. [Đáp án A]\nB. [Đáp án B]\nC. [Đáp án C]\nD. [Đáp án D]\nĐáp án đúng: [A/B/C/D]\n\nNội dung:\n{extracted_text}"
         response = model.generate_content(prompt)
 
@@ -129,5 +133,4 @@ async def on_message(message):
         return
     await bot.process_commands(message)
 
-bot.run("")
-
+bot.run(DISCORD_BOT_TOKEN)
