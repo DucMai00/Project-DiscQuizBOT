@@ -79,8 +79,7 @@ async def sot(ctx):
             doc = Document(attachment.filename)
             for para in doc.paragraphs:
                 extracted_text += para.text + "\n"
-
-        # 
+# --------------------------------------------------------------------------------------------------------------
         model = genai.GenerativeModel('gemini-1.5-flash')
         prompt = f"Tạo {selected_count} câu hỏi trắc nghiệm từ nội dung sau và chỉ rõ đáp án đúng với định dạng:\nCâu [số]: [Nội dung]\nA. [Đáp án A]\nB. [Đáp án B]\nC. [Đáp án C]\nD. [Đáp án D]\nĐáp án đúng: [A/B/C/D]\n\nNội dung:\n{extracted_text}"
         response = model.generate_content(prompt)
